@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+inotifywait -q -m -e close_write --format %e solution.py |
+while read events; do
+    OUTPUT_APP="$(cat input | python3 solution.py)"
+    OUTPUT_FILE="$(cat output)"
+    
+    if [ "$OUTPUT_APP" == "$OUTPUT_FILE" ]; then
+        echo "==============================================================="
+        echo "PASS" 
+        echo "==============================================================="
+    else
+        echo "==============================================================="
+        echo "FAIL"
+        echo "---------------------------------------------------------------"
+        echo "$OUTPUT_APP"
+        echo "==============================================================="
+    fi
+done
