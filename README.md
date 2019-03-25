@@ -1,3 +1,11 @@
+# Prerequisite
+
+Install following linux package:
+
+```bash
+sudo apt install inotify-tools
+```
+
 # How to use this repository
 
 This repository intendent to use in order to solve algoritmical problems.
